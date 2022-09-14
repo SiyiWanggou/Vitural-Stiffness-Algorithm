@@ -70,7 +70,7 @@ selected_anno <- data.frame(virtual_stiffness_anno$Sample,
                             virtual_stiffness_anno$X1p.19q.codeletion,
                             virtual_stiffness_anno$IDH.status,
                             virtual_stiffness_anno$Grade,
-                            virtual_stiffness_anno$virtual_stiffness
+                            as.numeric(virtual_stiffness_anno$virtual_stiffness)
 )
 colnames(selected_anno) <- c("Sample","Supervised.DNA.Methylation.Cluster","TERT.promoter.status",
                              "Chr.7.gain.Chr.10.loss","MGMT.promoter.status","IDH.codel.subtype",
