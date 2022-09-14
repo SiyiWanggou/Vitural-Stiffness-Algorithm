@@ -1,17 +1,17 @@
-#### Loading the TCGA Glioma RNAseq dataset
+#### Load the TCGA LGG-GBM RNAseq dataset.
 
 ```R
 TCGA_Matrix <- read.delim("LGG-GBMRNA-seq-clean-t.txt",header=T,row.names = 1)
 TCGA_Matrix <- as.matrix(TCGA_Matrix)
 ```
 
-#### Loading the TCGA annotation of LGG-GBM RNAseq dataset
+#### Load the TCGA annotation of LGG-GBM RNAseq dataset.
 
 ```R
 Annotation <- read.delim("TCGA_A_Phenotype_data_from_cell.txt",header=T,row.names = 1,na.strings = "NA")
 ```
 
-#### Single Sample GSEA of Virtual Stiffness gene_sets
+#### Load the virtual stiffness gene sets.
 
 ```R
 library(GSVA)
@@ -19,21 +19,21 @@ library(GSEABase)
 geneSets<-getGmt("Pathways.txt")
 ```
 
-#### Generating the zscore of ssGSEA
+#### Generate normalized ssGSEA score.
 
 ```R
 gsva_results<-gsva(TCGA_Matrix,geneSets,method="ssgsea",parallel.sz = 10,verbose = TRUE)
 gsva_results_score <- t(scale(t(gsva_results)))
 ```
 
-#### Add Annotation to annotation_col
+#### Add annotation to annotation_col.
 
 ```R
 annotation_col <- Annotation
 annotation_col$Sample <- row.names(annotation_col)
 ```
 
-#### Generate virtual stiffness of each sample
+#### Generate virtual stiffness of each sample.
 
 ```R
 virtual_stiffness <- colMeans(gsva_results_score)
@@ -41,13 +41,13 @@ virtual_stiffness <- cbind(names(virtual_stiffness),virtual_stiffness)
 colnames(virtual_stiffness) <- c("Sample","virtual_stiffness")
 ```
 
-#### Add virtual stiffness score to annotation to generate a datafram with virtual stiffness
+#### Add virtual stiffness score to annotation file.
 
 ```R
-virtual_stiffness <- merge(annotation_col,virtual_stiffness,by="Sample",all=FALSE)
+virtual_stiffness_anno <- merge(annotation_col,virtual_stiffness,by="Sample",all=FALSE)
 ```
 
-#### Plot the heatmap of ssGSEA score on virtual stiffness gene sets.
+#### Plot the heatmap of ssGSEA score on virtual stiffness gene sets annotated by virtual stiffness and associated biomarkers.
 
 ```R
 selected_anno <- data.frame(virtual_stiffness_anno$Sample,
@@ -97,4 +97,4 @@ dev.off()
 
 #### The heatmap shows virtual stiffness and ssGSEA scores of associated pathways on each glioma patient.
 
-[ssGSEA_VISA.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/ssGSEA_VISA.png)
+![ssGSEA_VISA.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/ssGSEA_VISA.png)
