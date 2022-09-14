@@ -1,4 +1,4 @@
-#### loading the TCGA Glioma RNAseq dataset
+#### Loading the TCGA Glioma RNAseq dataset
 
 ```R
 TCGA_Matrix <- read.delim("LGG-GBMRNA-seq-clean-t.txt",header=T,row.names = 1)
@@ -97,4 +97,4 @@ dev.off()
 
 #### The heatmap shows virtual stiffness and ssGSEA scores of associated pathways on each glioma patient.
 
-![Gene set enrichment and biomarker analysis in association with virtual stiffness of TCGA gliomas]https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/ssGSEA_VISA.png
+[ssGSEA_VISA.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/ssGSEA_VISA.png)
