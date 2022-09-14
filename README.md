@@ -10,10 +10,11 @@ Tissue stiffness is collectively determined by the stiffness of ECM and cells. G
 
 ### Workflow of virtual stiffness algorithm
 
-![ssGSEA_VISA.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/ssGSEA_VISA.png)
+![VISA workflow.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/VISA workflow.png)
 
 To generate virtual stiffness using bulk RNA-seq data, we first selected GO gene sets associated with extracellular matrix and actomyosin contractility from MSigDB. Then, the selected gene sets were enriched by ssGSEA for each sample to generate ssGSEA score. To normalize ssGSEA score, we calculated Z-score of each gene set across samples independently. The matrix of normalized ssGSEA score of selected extracellular matrix and actomyosin contractility gene sets in each sample was imported into the following algorithm to generate virtual stiffness of each sample:
 
-
+![VISA algorithm.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/VISA algorithm.png)
 
 As such, the virtual stiffness is considered as a transcriptomic index to infer tissue stiffness.
+
