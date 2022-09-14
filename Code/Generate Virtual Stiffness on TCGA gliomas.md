@@ -1,3 +1,14 @@
+#### Load the R packages.
+
+```R
+library(GSVA)
+library(GSEABase)
+library(pheatmap)
+library(Cairo)
+library(RColorBrewer)
+library(viridis)
+```
+
 #### Load the TCGA LGG-GBM RNAseq dataset.
 
 ```R
