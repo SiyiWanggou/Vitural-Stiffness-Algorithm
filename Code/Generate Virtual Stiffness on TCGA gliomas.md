@@ -8,7 +8,7 @@ TCGA_Matrix <- as.matrix(TCGA_Matrix)
 #### Load the TCGA annotation of LGG-GBM RNAseq dataset.
 
 ```R
-Annotation <- read.delim("TCGA_A_Phenotype_data_from_cell.txt",header=T,row.names = 1,na.strings = "NA")
+Annotation <- read.delim("TCGA_glioma_metadata_from_cell_paper.txt",header=T,row.names = 1,na.strings = "NA")
 ```
 
 #### Load the virtual stiffness gene sets.
