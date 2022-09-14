@@ -12,7 +12,7 @@ Tissue stiffness is collectively determined by the stiffness of ECM and cells. G
 
 ![VISA workflow.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/VISA%20workflow.png?raw=true)
 
-To generate virtual stiffness using bulk RNA-seq data, we first selected GO gene sets associated with extracellular matrix and actomyosin contractility from MSigDB. Then, the selected gene sets were enriched by ssGSEA for each sample to generate ssGSEA score. To normalize ssGSEA score, we calculated Z-score of each gene set across samples independently. The matrix of normalized ssGSEA score of selected extracellular matrix and actomyosin contractility gene sets in each sample was imported into the following algorithm to generate virtual stiffness of each sample:
+To generate virtual stiffness using bulk RNA-seq data, we first selected GO gene sets associated with extracellular matrix and actomyosin contractility from MSigDB based on our previous work by Xin et.al (https://doi.org/10.1016/j.neuron.2018.09.046). Then, the selected gene sets were enriched by ssGSEA for each sample to generate ssGSEA score. To normalize ssGSEA score, we calculated Z-score of each gene set across samples independently. The matrix of normalized ssGSEA score of selected extracellular matrix and actomyosin contractility gene sets in each sample was imported into the following algorithm to generate virtual stiffness of each sample:
 
 ![VISA algorithm.png](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Results/VISA%20algorithm.png?raw=true)
 
@@ -20,11 +20,11 @@ As such, the virtual stiffness is considered as a transcriptomic index to infer 
 
 #### Data to reproduce the VISA results on TCGA LGG-GBM patients
 
-TCGA LGG-GBM RNAseq dataset was downloaded from UCSC Xena browser (https://xenabrowser.net/datapages/?cohort=TCGA%20lower%20grade%20glioma%20and%20glioblastoma%20(GBMLGG)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443). The clean RNAseq dataset to reproduce the result could be downloaded at:
+TCGA LGG-GBM RNAseq dataset was downloaded from UCSC Xena browser (https://xenabrowser.net/). The clean RNAseq dataset to reproduce the result could be downloaded at:
 
 https://drive.google.com/file/d/1NtKFeQ_wzdFXHXFVfiJOxBlc_lby35Q-/view?usp=sharing
 
-Metadata of TCGA LGG-GBM RNAseq dataset was generated from TCGA pulications (). The clean metadata is provided as below:
+Metadata of TCGA LGG-GBM RNAseq dataset was generated from TCGA pulications by Michele et.al (https://doi.org/10.1016/j.cell.2015.12.028). The clean metadata is provided as below:
 
 [TCGA_glioma_metadata_from_cell_paper.txt](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Data/TCGA_glioma_metadata_from_cell_paper.txt)
 
@@ -36,5 +36,5 @@ The GO gene sets used for virtual stiffness algorithm is stored at:
 
 To acquire the code for virtual stiffness estimation, please see the following link:
 
-[Generate Virtual Stiffness on TCGA gliomas.md](https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/blob/main/Code/Generate Virtual Stiffness on TCGA gliomas.md)
+https://github.com/SiyiWanggou/Vitural-Stiffness-Algorithm/tree/main/Code
 
